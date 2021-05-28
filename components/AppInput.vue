@@ -1,40 +1,31 @@
 <template>
-  <input v-model="input" type="text"></input>
+  <div>
+    <input v-model="inputValue" type="text" />
+    <slot />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'AppInput',
+  name: "AppInput",
   props: {
     value: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   computed: {
-    input: {
+    inputValue: {
       get() {
-        return this.value
+        return this.value;
       },
       set(newValue) {
-        this.$emit('input', newValue)
-      }
-    }
-  }
-  //data() {
-  //  return {
-  //    input: this.value
-  //  }
-  //},
-  //methods: {
-  //  update() {
-  //    this.$emit('input', this.input)
-  //  }
-  //},
-  //watch:{
-  //  value() {
-  //    this.input = this.value
-  //  }
-  //}
-}
+        this.$emit("input", newValue);
+      },
+    },
+  },
+};
 </script>
+
+<style scoped>
+</style>
